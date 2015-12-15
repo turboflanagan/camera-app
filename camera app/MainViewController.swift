@@ -8,8 +8,31 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MainViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    private var imageStore : [UIImage]!
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let image = self.imageStore[indexPath.item]
+        self.displayImageView.image = image
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let image = self.imageStore![indexPath.item]
+        
+        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PreviewCellReuseID", forIndexPath: indexPath) as? PreviewCollectionViewCell {
+            cell.previewImageView.image = image
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return self.imageStore.count
+    }
+    
     @IBAction func cameraButtonTouched(sender: UIBarButtonItem) {
         
         self.displayImagePicker(.Camera)
@@ -46,7 +69,11 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
         self.displayImageView.image = image
+        self.imageStore.insert(image, atIndex: 0)
+        self.previewCollectionView.reloadData()
+        self.previewCollectionView.alpha = 1.0
         
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -55,6 +82,8 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
     override func viewDidLoad() {
+        self.previewCollectionView.alpha = 0.0
+        self.imageStore = [UIImage]()
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -67,6 +96,7 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var displayImageView: UIImageView!
 
+    @IBOutlet weak var previewCollectionView: UICollectionView!
     /*
     // MARK: - Navigation
 
