@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5239BCBA1C0FBF66004B05D8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5239BCB91C0FBF66004B05D8 /* MainViewController.swift */; };
 		523F2FFD1C1F9E1000DCC792 /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523F2FFC1C1F9E1000DCC792 /* PreviewCollectionViewCell.swift */; };
+		52B90CF61C4DB33C0011BB47 /* ImageFilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B90CF51C4DB33C0011BB47 /* ImageFilterManager.swift */; };
+		52B90CFE1C4DBD940011BB47 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B90CFD1C4DBD940011BB47 /* FilterTableViewCell.swift */; };
+		52B90D001C4DBFD50011BB47 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B90CFF1C4DBFD50011BB47 /* FilterViewController.swift */; };
 		52D0F64A1C0FB7F9007E5294 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D0F6491C0FB7F9007E5294 /* AppDelegate.swift */; };
 		52D0F64F1C0FB7F9007E5294 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D0F64D1C0FB7F9007E5294 /* Main.storyboard */; };
 		52D0F6511C0FB7F9007E5294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D0F6501C0FB7F9007E5294 /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 /* Begin PBXFileReference section */
 		5239BCB91C0FBF66004B05D8 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		523F2FFC1C1F9E1000DCC792 /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		52B90CF51C4DB33C0011BB47 /* ImageFilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFilterManager.swift; sourceTree = "<group>"; };
+		52B90CFD1C4DBD940011BB47 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		52B90CFF1C4DBFD50011BB47 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		52D0F6461C0FB7F9007E5294 /* camera app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "camera app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D0F6491C0FB7F9007E5294 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52D0F64E1C0FB7F9007E5294 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,6 +46,7 @@
 		52D0F63D1C0FB7F9007E5294 = {
 			isa = PBXGroup;
 			children = (
+				52B90CFD1C4DBD940011BB47 /* FilterTableViewCell.swift */,
 				52D0F6481C0FB7F9007E5294 /* camera app */,
 				52D0F6471C0FB7F9007E5294 /* Products */,
 			);
@@ -58,7 +65,9 @@
 			children = (
 				52D0F6491C0FB7F9007E5294 /* AppDelegate.swift */,
 				52D0F64D1C0FB7F9007E5294 /* Main.storyboard */,
+				52B90CF51C4DB33C0011BB47 /* ImageFilterManager.swift */,
 				523F2FFC1C1F9E1000DCC792 /* PreviewCollectionViewCell.swift */,
+				52B90CFF1C4DBFD50011BB47 /* FilterViewController.swift */,
 				5239BCB91C0FBF66004B05D8 /* MainViewController.swift */,
 				52D0F6501C0FB7F9007E5294 /* Assets.xcassets */,
 				52D0F6521C0FB7F9007E5294 /* LaunchScreen.storyboard */,
@@ -139,9 +148,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B90D001C4DBFD50011BB47 /* FilterViewController.swift in Sources */,
 				523F2FFD1C1F9E1000DCC792 /* PreviewCollectionViewCell.swift in Sources */,
 				52D0F64A1C0FB7F9007E5294 /* AppDelegate.swift in Sources */,
 				5239BCBA1C0FBF66004B05D8 /* MainViewController.swift in Sources */,
+				52B90CF61C4DB33C0011BB47 /* ImageFilterManager.swift in Sources */,
+				52B90CFE1C4DBD940011BB47 /* FilterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

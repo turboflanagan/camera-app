@@ -81,6 +81,29 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "FilterSegue" {
+            if let vc : FilterViewController = segue.destinationViewController as? FilterViewController {
+                vc.sourceImage = self.displayImageView.image
+            }
+        }
+    }
+    
+    
+    @IBAction func didSelectFilter(segue: UIStoryboardSegue) {
+        if segue.identifier == "FilterSelectedSegue" {
+            if let source = segue.sourceViewController as? FilterViewController, let image = source.filteredImage {
+                self.displayImageView.image = image
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         self.previewCollectionView.alpha = 0.0
         self.imageStore = [UIImage]()

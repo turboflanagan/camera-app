@@ -53,7 +53,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PreviewCellReuseID" id="FCA-gq-Ce6" customClass="PreviewCollectionViewCell" customModule="camera_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.5" width="128" height="169.5"/>
+                                        <rect key="frame" x="0.0" y="10" width="128" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="170"/>
@@ -104,6 +104,11 @@
                                 <action selector="actionButtonTouched:" destination="Scb-g7-LAu" id="mVD-Xs-XOc"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem title="Item" id="eA4-hs-yq5">
+                            <connections>
+                                <segue destination="cZR-AU-mWJ" kind="show" identifier="FilterSegue" id="QrS-Nk-1GF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Ijo-u7-Ufu"/>
                         <barButtonItem systemItem="camera" id="qrn-HB-FEf">
                             <connections>
@@ -125,7 +130,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeV-2B-SH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="419"/>
+            <point key="canvasLocation" x="1058" y="490"/>
+        </scene>
+        <!--Filter View Controller-->
+        <scene sceneID="YpZ-Mr-Hgv">
+            <objects>
+                <viewController id="cZR-AU-mWJ" customClass="FilterViewController" customModule="camera_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J9k-Ok-ana"/>
+                        <viewControllerLayoutGuide type="bottom" id="S4o-3u-1Ag"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G7k-Pa-9Cc" userLabel="FilterViewController">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nxE-Lo-gkN">
+                                <rect key="frame" x="180" y="54" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterReuseID" id="Bru-Iz-BX7" customClass="FilterViewTableViewCell">
+                                        <rect key="frame" x="0.0" y="92" width="240" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bru-Iz-BX7" id="pU7-Cb-csg">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xrx-GG-tnw" kind="unwind" unwindAction="didSelectFilter:" id="Ob9-9f-ccF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1jr-6t-u9d">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="1jr-6t-u9d" id="AwC-Bc-ls6"/>
+                        <outlet property="tableView" destination="nxE-Lo-gkN" id="L33-Kz-LAj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JgO-NR-7Zg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xrx-GG-tnw" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1690" y="419"/>
         </scene>
     </scenes>
 </document>
