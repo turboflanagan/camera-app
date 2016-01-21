@@ -7,10 +7,25 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+import FBSDKShareKit
+import FBSDKCoreKit
 
-class MainViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class MainViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, FBSDKSharingDelegate {
 
     private var imageStore : [UIImage]!
+
+    func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        
+    }
+    
+    func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
+    }
+    
+    func sharerDidCancel(sharer: FBSDKSharing!){
+        
+    }
+
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let image = self.imageStore[indexPath.item]
@@ -46,11 +61,12 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func actionButtonTouched(sender: AnyObject) {
-        if let image = self.displayImageView.image{
-            let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-            activityViewController.excludedActivityTypes = [UIActivityTypeMail]
-            self.presentViewController(activityViewController, animated: true,
-                completion:nil)
+        if let image = self.displayImageView.image {
+            let sharePhoto = FBSDKSharePhoto(image: image, userGenerated: true)
+            let content = FBSDKSharePhotoContent()
+            content.photos = [sharePhoto]
+            FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: self)
+        
         }
     }
     
@@ -131,3 +147,5 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     */
 
 }
+
+
